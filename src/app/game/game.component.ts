@@ -32,8 +32,8 @@ export class GameComponent implements OnInit {
     if (!this.pickCardAnimation) {
       this.currentCard = this.game.stack.pop();
       this.pickCardAnimation = true;
-      console.log('new card', this.currentCard);
-      console.log('game is', this.game);
+      this.game.currentPlayer++;
+      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; // % (modulu) ist immer der rest operator! zb (zählt hoch)  1 2 3 / durch den rest 3 ist dann wieder null!
       setTimeout(() => {
         this.game.playedCards.push(this.currentCard);
         this.pickCardAnimation = false;
@@ -44,10 +44,10 @@ export class GameComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
-
     dialogRef.afterClosed().subscribe((name:string) => {
-      this.game.players.push(name);
-      console.log('The dialog was closed', name);
+      if (name && name.length > 0) { // größer als null
+        this.game.players.push(name);
+      }
     });
   }
 }
