@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-dialog-add-player',
   templateUrl: './dialog-add-player.component.html',
@@ -9,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class DialogAddPlayerComponent implements OnInit {
   name: string = '';
 
-  constructor() { }
+
+  constructor() {}
+
 
   ngOnInit(): void {
 
+  }
+
+
+  onNoClick() {
+    
   }
 }
