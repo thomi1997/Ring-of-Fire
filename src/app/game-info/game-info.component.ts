@@ -40,7 +40,6 @@ export class GameInfoComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.card) {
-      console.log('current card is:', this.card);
       let cardnumber = +this.card.split('_')[1];
       this.title = this.cardAction[cardnumber - 1].title;  //ein string in eine zahl (typ number) umwandeln im dem man ein + davor packt!
       this.description = this.cardAction[cardnumber - 1].description;

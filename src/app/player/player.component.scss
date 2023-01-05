@@ -2,9 +2,10 @@
     width: 300px;
     display: flex;
     align-items: center;
-    background-color: rgb(134, 130, 124);
+    background-color: rgb(220, 220, 220);
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
+    word-break: break-all;
 
     span {
         font-size: 32px;
@@ -19,5 +20,5 @@
 }
 
 .player-active {
-    background-color: orange !important;
+    background-color: rgb(218, 32, 39) !important;
 }
