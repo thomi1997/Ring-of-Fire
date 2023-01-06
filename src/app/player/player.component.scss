@@ -8,7 +8,7 @@
     word-break: break-all;
 
     span {
-        font-size: 32px;
+        font-size: 30px;
         margin-left: 16px;
     }
 
@@ -21,4 +21,34 @@
 
 .player-active {
     background-color: rgb(218, 32, 39) !important;
+}
+
+@media (max-width: 950px) {
+    .player {
+        width: 250px;
+    }
+
+    span {
+        font-size: 18px !important;
+    }
+}
+
+@media (max-width: 650px) {
+    .player {
+        width: 180px;
+    }
+
+    span {
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .player {
+        width: 150px;
+    }
+
+    span {
+        font-size: 12px !important;
+    }
 }

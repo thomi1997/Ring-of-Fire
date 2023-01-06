@@ -14,8 +14,7 @@ export class GameComponent implements OnInit {
   game: Game;
 
 
-  constructor(public dialog: MatDialog) {
-  }
+  constructor(public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
@@ -29,22 +28,30 @@ export class GameComponent implements OnInit {
 
 
   pickCard() {
-    if (!this.pickCardAnimation) {
-      this.currentCard = this.game.stack.pop();
-      this.pickCardAnimation = true;
-      this.game.currentPlayer++;
-      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; // % (modulu) ist immer der rest operator! zb (zählt hoch)  1 2 3 / durch den rest 3 ist dann wieder null!
-      setTimeout(() => {
-        this.game.playedCards.push(this.currentCard);
-        this.pickCardAnimation = false;
-      }, 1000);
+    if (this.game.players.length > 1) {
+      if (!this.pickCardAnimation)
+        this.cardTakeApproved();
+    } else {
+      this.openDialog();
     }
+  }
+
+
+  cardTakeApproved() {
+    this.currentCard = this.game.stack.pop();
+    this.pickCardAnimation = true;
+    this.game.currentPlayer++;
+    this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; // % (modulu) ist immer der rest operator! zb (zählt hoch)  1 2 3 / durch den rest 3 ist dann wieder null!
+    setTimeout(() => {
+      this.game.playedCards.push(this.currentCard);
+      this.pickCardAnimation = false;
+    }, 1000);
   }
 
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
-    dialogRef.afterClosed().subscribe((name:string) => {
+    dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) { // größer als null
         this.game.players.push(name);
       }
