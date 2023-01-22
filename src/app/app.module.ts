@@ -15,7 +15,12 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { GameInfoComponent } from './game-info/game-info.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+import { EndScreenComponent } from './end-screen/end-screen.component';
+import { ImprintComponent } from './imprint/imprint.component';
+import { ImagesSelectionComponent } from './images-selection/images-selection.component';
 
 
 @NgModule({
@@ -26,6 +31,9 @@ import {MatCardModule} from '@angular/material/card';
     PlayerComponent,
     DialogAddPlayerComponent,
     GameInfoComponent,
+    EndScreenComponent,
+    ImprintComponent,
+    ImagesSelectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,9 +45,10 @@ import {MatCardModule} from '@angular/material/card';
     MatInputModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [StartScreenComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,35 @@
+.endscreen-img {
+    width: 100%;
+    object-fit: contain;
+    display: flex;
+}
+
+.end-button {
+    height: auto;
+    width: 30%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    position: relative;
+    bottom: 0px;
+    left: 35%;
+    right: 35%;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow: 4px 4px 12px -3px rgba(0, 0, 0, 0.56);
+    box-shadow: 4px 4px 12px -3px rgba(0, 0, 0, 0.56);
+    color: rgb(116, 111, 111);
+    font-size: 35px;
+
+    &:hover {
+        background-color: rgb(243, 111, 32);
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+    }
+
+    @media (max-width: 500px) {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+    }
+}

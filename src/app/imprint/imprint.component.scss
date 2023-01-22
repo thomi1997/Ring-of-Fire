@@ -1,0 +1,22 @@
+.imprint-div {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/assets/img/background.jpg'); // /ring-of-fire/assets/img/background.jpg
+    background-position: center;
+}
+
+.imprint-content {
+    margin-top: 100px;
+    color: white;
+    text-align: center;
+    a {
+        font-size: 20px;
+        font-weight: 600;
+        color: rgb(211, 208, 208);
+
+        &:hover {
+            color: rgb(32, 47, 255);
+        }
+    }
+}
