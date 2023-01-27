@@ -3,6 +3,7 @@ import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { EndScreenComponent } from "../end-screen/end-screen.component";
+import { ChangeProfilesComponent } from "../change-profiles/change-profiles.component";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 
@@ -36,6 +37,7 @@ export class GameComponent implements OnInit {
           this.game.currentPlayer;
           this.game.pickCardAnimation = game.pickCardAnimation;
           this.game.currentCard = game.currentCard;
+          this.game.player_images = game.player_images;
         });
     });
   }
@@ -77,11 +79,30 @@ export class GameComponent implements OnInit {
   }
 
 
+  changeProfil(playerId: any): void {
+    console.log(playerId);
+    const dialogRef = this.dialog.open(ChangeProfilesComponent);
+    dialogRef.afterClosed().subscribe((change: string) => {
+      if (change) {
+        if (change == 'DELETE') {
+          this.game.players.splice(playerId, 1);
+          this.game.player_images.splice(playerId, 1);
+        } else {
+          console.log('Received change', change);
+          this.game.player_images[playerId] = change;
+        }
+        this.saveGame();
+      }
+    });
+  }
+
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) { // größer als null
         this.game.players.push(name);
+        this.game.player_images.push('profile_1.png');
         this.saveGame();
       }
     });

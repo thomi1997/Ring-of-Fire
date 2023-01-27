@@ -9,5 +9,10 @@ import { Component } from '@angular/core';
 export class PlayerComponent {
   
   @Input() name;
+  @Input() image = 'profile_1.png';
   @Input() playerActive:boolean = false;
+
+
+  constructor() { }
+
 }

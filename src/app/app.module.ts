@@ -20,7 +20,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { EndScreenComponent } from './end-screen/end-screen.component';
 import { ImprintComponent } from './imprint/imprint.component';
-import { ImagesSelectionComponent } from './images-selection/images-selection.component';
+import { ChangeProfilesComponent } from './change-profiles/change-profiles.component';
 
 
 @NgModule({
@@ -33,7 +33,7 @@ import { ImagesSelectionComponent } from './images-selection/images-selection.co
     GameInfoComponent,
     EndScreenComponent,
     ImprintComponent,
-    ImagesSelectionComponent,
+    ChangeProfilesComponent,
   ],
   imports: [
     BrowserModule,

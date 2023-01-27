@@ -1,0 +1,7 @@
+<div>
+    <img class="profile-picture" [mat-dialog-close]="picture" *ngFor="let picture of allProfilePictures" src="/assets/img/profiles/{{ picture }}">
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Close</button>
+        <button mat-button color="warn" [mat-dialog-close]="'DELETE'">Delete Player</button>
+      </div>
+</div>

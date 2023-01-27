@@ -17,38 +17,38 @@
         height: 70px;
         border-radius: 100%;
     }
+
+    &:hover {
+        filter: brightness(1.2);
+        cursor: pointer;
+    }
+
+
+    @media (max-width: 950px) {
+        width: 250px;
+
+        span {
+            font-size: 18px !important;
+        }
+    }
+
+    @media (max-width: 650px) {
+        width: 180px;
+
+        span {
+            font-size: 12px !important;
+        }
+    }
+
+    @media (max-width: 400px) {
+        width: 150px;
+
+        span {
+            font-size: 12px !important;
+        }
+    }
 }
 
 .player-active {
     background-color: rgb(218, 32, 39) !important;
-}
-
-@media (max-width: 950px) {
-    .player {
-        width: 250px;
-    }
-
-    span {
-        font-size: 18px !important;
-    }
-}
-
-@media (max-width: 650px) {
-    .player {
-        width: 180px;
-    }
-
-    span {
-        font-size: 12px !important;
-    }
-}
-
-@media (max-width: 400px) {
-    .player {
-        width: 150px;
-    }
-
-    span {
-        font-size: 12px !important;
-    }
 }
